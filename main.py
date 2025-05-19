@@ -12,3 +12,6 @@ with col2:
     content = """
     Hey! My name is Adda and I am a Full Stack Developer, passionate about Python. This is my portfolio of web apps that I've created so far 😊. Here you can find the built-in apps and their source code. Enjoy!"""
     st.info(content)
+
+description = """Another passion of mine is travelling around the world ✈️🌎. So, this is what I do when I am not coding 😉."""
+st.write(description)
