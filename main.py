@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(layout="wide")
 
@@ -15,3 +16,21 @@ with col2:
 
 description = """Another passion of mine is travelling around the world ✈️🌎. So, this is what I do when I am not coding 😉."""
 st.write(description)
+
+col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5]) #dimensiunea coloanelor
+
+df = pd.read_csv("data.csv", sep=";")
+
+with col3:
+    for index, row in df[:10].iterrows(): #sunt afisate primele 10 titluri
+        st.header(row["title"]) #key from data.csv
+        st.write(row["description"]) # row["description"] - key from data.csv
+        st.image("images/" + row["image"]) 
+        st.write(f"[Source Code ]({row['url']})") #["Source Code"] - este tag de link pe pagina
+
+with col4:
+    for index, row in df[10:].iterrows(): #sunt afisate ultimele 10 titluri
+        st.header(row["title"]) #key from data.csv
+        st.write(row["description"]) #key from data.csv
+        st.image("images/" + row["image"])
+        st.write(f"[Source Code ]({row['url']})") 
